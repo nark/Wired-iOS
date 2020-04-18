@@ -1,6 +1,6 @@
 # WiredSwift
 
-WiredSwift is an implementation of the Wired 2.0 protocol written in Swift. 
+Wired for iOS is an implementation of the Wired 2.0 protocol written in Swift.
 
 ## Requirements
 
@@ -13,89 +13,6 @@ Init dependencies:
 
     cd WiredSwift
     carthage update
-
-## Using WiredSwift
-
-### Adding to your project
-
-Currently the easiest way to add `WiredSwift` to your project is by dropping the `WiredSwift.xcodeproj` file as a subproject of your own Xcode project workspace. 
-
-https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/WorkingonRelatedProjects.html
-
-### Connection
-
-Minimal connection to a Wired 2.0 server:
-
-    let spec = P7Spec()
-
-    // the Wired URL to connect to
-    let url = Url(withString: "wired://192.168.1.23:4871")
-
-    // init connection
-    let connection = Connection(withSpec: spec, delegate: self)
-    connection.nick = "Me"
-    connection.status = "Testing WiredSwift"
-
-    // perform  connect
-    if connection.connect(withUrl: url) {
-        // connected
-    } else {
-        // not connected
-        print(connection.socket.errors)
-    }
-    
-### Interactive socket
-
-The `Connection` class provides two ways of handling messages:
-
-* connection instance is set as `interactive` so it will automatically manage a listening loop in a separated thread and dispatch receive message through `ConnectionDelegate` protocol to registered delegates in the main thread. This is the default behavior.
-* connection instance is NOT `interactive`, and in that case you have to handle every message read/write transactions by yourself using `Connection.readMessage()` and `Connection.sendMessage()` methods. This for example is used for transfers separated connections that have different behaviors.
-
-Set the `interactive` attribute to `false` before calling `Connection.connect()` if you want to use uninteractive mode.
-
-### Join to the public chat
-
-Once connected, in order to login into the public chat and list connected users, you have to explicitely trigger the `wired.chat.join_chat` transaction. The `Connection` class can help you by calling the following method:
-
-    connection.joinChat(chatID: 1)
-    
-Where `1` is always the ID of the public chat regarding the Wired 2.0 protocol.
-
-### Receive messages
-
-While using interactive mode, you have to comply with the `ConnectionDelegate` protocol to receive messages (`P7Message`) or any other events from the initiated connection. For example, the `connectionDidSendMessage(connection: Connection, message: P7Message)` method will distribute received messages which you can handle as the following:
-
-    func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
-        if  message.name == "wired.chat.user_list" {
-            print(message.xml(pretty: true))
-        }
-    }
-
-### Send messages
-
-The following example illustrate how to send a message:
-
-    let message = P7Message(withName: "wired.chat.say", spec: spec)
-    message!.addParameter(field: "wired.chat.id", value: 1) // public chat ID
-    message!.addParameter(field: "wired.chat.say", value: "Hello, world!")
-    
-    self.connection.send(message: message!)
-    
-To learn more about the Wired 2.0 specification you can visit this documentation: http://wired.read-write.fr/spec.html and read the orginal code of the `libwired` C library: https://github.com/nark/libwired
-
-## Contribute
-
-You are welcome to contribute using issues and pull-requests if you want to.
-
-Focus is on:
-
-* socket IO stability: the quality of in/out data interpretation and management through the Wired socket
-* mutli-threading stability: the ability to interact smoothly between connections and UIs
-* low-level unit tests: provides a strong implementation to enforce the integrity of the specification
-* specification compliance: any not yet implemented features that require kilometers of code…
-* limit regression from the original implementation
-
-Check the GitHub « Projects » page to get a sneap peek on the project insights and progress:  https://github.com/nark/WiredSwift/projects
 
 ## License
 
