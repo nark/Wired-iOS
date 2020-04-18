@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import KeychainAccess
-import WiredSwift_iOS
+import WiredSwift
 
 class BookmarkViewController: UITableViewController {
     @IBOutlet var addressTextField:     UITextField!

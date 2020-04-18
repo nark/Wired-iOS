@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import WiredSwift_iOS
+import WiredSwift
 
 public class BoardThread: ConnectionObject {
     public var uuid:String!

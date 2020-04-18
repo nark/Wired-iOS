@@ -3,6 +3,6 @@
 //
 
 
-#import "BBCodeString.h"
 #import "BBElement.h"
+#import "BBCodeString.h"
 #import "UIColor+HTMLColors.h"

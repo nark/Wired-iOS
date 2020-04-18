@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import WiredSwift_iOS
+import WiredSwift
 
 public class ConnectionObject: NSObject {
     public var connection: Connection!

@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import WiredSwift_iOS
+import WiredSwift
 import Reachability
 import JGProgressHUD
 
@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         connectionDelegate:ConnectionDelegate?,
                         completion: ((_ connection:Connection) -> Void)?) {
         
-      let spec = P7Spec()
+        let spec = P7Spec(withPath: Bundle.main.path(forResource: "wired", ofType: "xml"))
       let url = bookmark.url()
       
       let connection = Connection(withSpec: spec, delegate: connectionDelegate)

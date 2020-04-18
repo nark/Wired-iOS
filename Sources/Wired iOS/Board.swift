@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import WiredSwift_iOS
-import LNZTreeView
+import WiredSwift
 
-public class Board: ConnectionObject, TreeNodeProtocol {
+
+public class Board: ConnectionObject {
     public var name:String!
     public var path:String!
     

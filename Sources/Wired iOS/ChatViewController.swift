@@ -9,7 +9,7 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
-import WiredSwift_iOS
+import WiredSwift
 
 
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import WiredSwift_iOS
+import WiredSwift
 import JGProgressHUD
 import Reachability
 

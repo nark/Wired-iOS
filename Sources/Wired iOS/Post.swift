@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WiredSwift_iOS
+import WiredSwift
 
 public class Post: ConnectionObject {
     public var uuid:String!

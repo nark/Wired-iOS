@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WiredSwift_iOS
+import WiredSwift
 import MessageKit
 
 

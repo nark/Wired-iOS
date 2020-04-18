@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WiredSwift_iOS
+import WiredSwift
 
 class BoardsViewController: UITableViewController, ConnectionDelegate {
     public private(set) var boards:[Board] = []
