@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4C1F9639244B27DA00AF5EBE /* ThreadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F9638244B27DA00AF5EBE /* ThreadViewCell.swift */; };
 		4C1F965E244B68E100AF5EBE /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F965D244B68E100AF5EBE /* PostViewCell.swift */; };
-		4C1F9664244BAA2800AF5EBE /* WiredSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4C1F9663244BAA2800AF5EBE /* WiredSwift */; };
 		4C1F96B4244BB4EC00AF5EBE /* BBElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F96A6244BB4E000AF5EBE /* BBElement.m */; };
 		4C1F96B5244BB4EC00AF5EBE /* BBCodeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F96A8244BB4E200AF5EBE /* BBCodeParser.m */; };
 		4C1F96B6244BB4EC00AF5EBE /* BBCodeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1F96AB244BB4E500AF5EBE /* BBCodeString.m */; };
@@ -55,6 +54,7 @@
 		4CDE91B9244A22B200ED9695 /* ThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE91B8244A22B200ED9695 /* ThreadsViewController.swift */; };
 		4CDE91BB244A385900ED9695 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE91BA244A385900ED9695 /* PostsViewController.swift */; };
 		4CDE9202244A529A00ED9695 /* UIColor+HTMLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDE9201244A529A00ED9695 /* UIColor+HTMLColors.m */; };
+		4CFCE4F5244CE7A3007E1568 /* WiredSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4CFCE4F4244CE7A3007E1568 /* WiredSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,8 +133,8 @@
 			files = (
 				4C88747C243483A100A5D4A0 /* JGProgressHUD in Frameworks */,
 				4C1F96D8244BB9AA00AF5EBE /* Reachability in Frameworks */,
+				4CFCE4F5244CE7A3007E1568 /* WiredSwift in Frameworks */,
 				4C1F96DB244BB9DA00AF5EBE /* KeychainAccess in Frameworks */,
-				4C1F9664244BAA2800AF5EBE /* WiredSwift in Frameworks */,
 				4C8874982434E99700A5D4A0 /* CZlib in Frameworks */,
 				4C8874952434E98000A5D4A0 /* MessageKit.framework in Frameworks */,
 				4C6656B72434FB390022E7D7 /* InputBarAccessoryView.framework in Frameworks */,
@@ -289,9 +289,9 @@
 			packageProductDependencies = (
 				4C88747B243483A100A5D4A0 /* JGProgressHUD */,
 				4C8874972434E99700A5D4A0 /* CZlib */,
-				4C1F9663244BAA2800AF5EBE /* WiredSwift */,
 				4C1F96D7244BB9AA00AF5EBE /* Reachability */,
 				4C1F96DA244BB9DA00AF5EBE /* KeychainAccess */,
+				4CFCE4F4244CE7A3007E1568 /* WiredSwift */,
 			);
 			productName = "Wired iOS";
 			productReference = 4C75B9B0243374D900BE8857 /* Wired.app */;
@@ -331,9 +331,9 @@
 				4C75B9A72433717B00BE8857 /* XCRemoteSwiftPackageReference "AEXML" */,
 				4C8874782434836C00A5D4A0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				4C2870592449BFBA00E792AC /* XCRemoteSwiftPackageReference "GzipSwift" */,
-				4C1F9662244BAA2800AF5EBE /* XCRemoteSwiftPackageReference "WiredSwift" */,
 				4C1F96D6244BB9AA00AF5EBE /* XCRemoteSwiftPackageReference "Reachability" */,
 				4C1F96D9244BB9DA00AF5EBE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				4CFCE4F3244CE7A3007E1568 /* XCRemoteSwiftPackageReference "WiredSwift" */,
 			);
 			productRefGroup = 4C74285F22DCECE800D6E6F9 /* Products */;
 			projectDirPath = "";
@@ -662,14 +662,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4C1F9662244BAA2800AF5EBE /* XCRemoteSwiftPackageReference "WiredSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nark/WiredSwift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		4C1F96D6244BB9AA00AF5EBE /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
@@ -742,14 +734,17 @@
 				minimumVersion = 0.1.2;
 			};
 		};
+		4CFCE4F3244CE7A3007E1568 /* XCRemoteSwiftPackageReference "WiredSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nark/WiredSwift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4C1F9663244BAA2800AF5EBE /* WiredSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4C1F9662244BAA2800AF5EBE /* XCRemoteSwiftPackageReference "WiredSwift" */;
-			productName = WiredSwift;
-		};
 		4C1F96D7244BB9AA00AF5EBE /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4C1F96D6244BB9AA00AF5EBE /* XCRemoteSwiftPackageReference "Reachability" */;
@@ -769,6 +764,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */;
 			productName = CZlib;
+		};
+		4CFCE4F4244CE7A3007E1568 /* WiredSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4CFCE4F3244CE7A3007E1568 /* XCRemoteSwiftPackageReference "WiredSwift" */;
+			productName = WiredSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

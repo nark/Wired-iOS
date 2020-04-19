@@ -84,10 +84,10 @@
       },
       {
         "package": "WiredSwift",
-        "repositoryURL": "https://github.com/nark/WiredSwift.git",
+        "repositoryURL": "https://github.com/nark/WiredSwift",
         "state": {
           "branch": "master",
-          "revision": "2605769349fd10f088d65012b0bfec0f700ffa1d",
+          "revision": "b607e55da7d1db9eaba3a8a50850b738bccad212",
           "version": null
         }
       }

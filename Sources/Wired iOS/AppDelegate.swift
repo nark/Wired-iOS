@@ -14,7 +14,7 @@ import JGProgressHUD
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ClientInfoDelegate {
     public static let shared:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     public static let dateTimeFormatter = DateFormatter()
     
@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    
     // MARK: - Connection Helpers
     public var currentConnection:Connection? {
         if let ctbc = AppDelegate.shared.window?.rootViewController as? ConnectionTabBarController {
@@ -72,20 +73,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         completion: ((_ connection:Connection) -> Void)?) {
         
         let spec = P7Spec(withPath: Bundle.main.path(forResource: "wired", ofType: "xml"))
-      let url = bookmark.url()
+        let url = bookmark.url()
       
-      let connection = Connection(withSpec: spec, delegate: connectionDelegate)
-      connection.nick = UserDefaults.standard.string(forKey: "WSUserNick") ?? "Swift iOS"
-      connection.status = UserDefaults.standard.string(forKey: "WSUserStatus") ?? "Around"
+        let connection = Connection(withSpec: spec, delegate: connectionDelegate)
+        connection.nick = UserDefaults.standard.string(forKey: "WSUserNick") ?? "Swift iOS"
+        connection.status = UserDefaults.standard.string(forKey: "WSUserStatus") ?? "Around"
+        connection.clientInfoDelegate = self
       
-      if let b64string = UserDefaults.standard.image(forKey: "WSUserIcon")?.pngData()?.base64EncodedString() {
+        if let b64string = UserDefaults.standard.image(forKey: "WSUserIcon")?.pngData()?.base64EncodedString() {
           connection.icon = b64string
-      }
+        }
           
         AppDelegate.shared.hud.show(in: vc.view)
       
-      // perform  connect
-      DispatchQueue.global().async {
+        // perform  connect
+        DispatchQueue.global().async {
           if connection.connect(withUrl: url) {
               DispatchQueue.main.async {
                   AppDelegate.shared.hud.dismiss(afterDelay: 1.0)
@@ -126,6 +128,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 
+    // MARK: - Client Info Delegate
+    
+    func clientInfoApplicationName(for connection: Connection) -> String? {
+        return "Wired iOS"
+    }
+    
+    func clientInfoApplicationVersion(for connection: Connection) -> String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
+    func clientInfoApplicationBuild(for connection: Connection) -> String? {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
+    
+    
     
     // MARK: - Core Data stack
 
